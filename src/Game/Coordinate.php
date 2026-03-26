@@ -4,9 +4,9 @@ namespace Dbu\SnakeBundle\Game;
 
 class Coordinate
 {
-    public $x;
+    public int $x;
 
-    public $y;
+    public int $y;
 
     public function __construct(int $x, int $y)
     {

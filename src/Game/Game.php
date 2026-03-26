@@ -23,20 +23,11 @@ class Game
         '1b5b41' => Snake::UP, // up arrow
     ];
 
-    /**
-     * @var Board
-     */
-    private $board;
+    private Board $board;
 
-    /**
-     * @var Snake
-     */
-    private $snake;
+    private Snake $snake;
 
-    /**
-     * @var int
-     */
-    private $height;
+    private int $height;
 
     public function __construct(int $width, int $height)
     {
@@ -46,7 +37,7 @@ class Game
         $this->height = $height;
     }
 
-    public function run($inputStream, OutputInterface $output, Cursor $cursor): void
+    public function run(mixed $inputStream, OutputInterface $output, Cursor $cursor): void
     {
         $this->board->init($output, $cursor);
         $this->intro($inputStream, $output, $cursor);
@@ -84,7 +75,7 @@ class Game
         }
     }
 
-    private function intro($inputStream, OutputInterface $output, Cursor $cursor): void
+    private function intro(mixed $inputStream, OutputInterface $output, Cursor $cursor): void
     {
         $this->board->print($output, $cursor, Images::SNAKE, new Coordinate(10, 6), 'snake');
 

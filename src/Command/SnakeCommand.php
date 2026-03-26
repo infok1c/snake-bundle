@@ -3,6 +3,7 @@
 namespace Dbu\SnakeBundle\Command;
 
 use Dbu\SnakeBundle\Game\Game;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Cursor;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
@@ -10,16 +11,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\StreamableInputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(name: 'game:snake', description: 'Run the snake game in Symfony console (only one more time...)')]
 class SnakeCommand extends Command
 {
-    protected static $defaultName = 'game:snake';
-
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDescription('Run the snake game in Symfony console (only one more time...)');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input instanceof StreamableInputInterface && $stream = $input->getStream()) {
             $inputStream = $stream;
@@ -46,6 +45,6 @@ class SnakeCommand extends Command
         stream_set_blocking($inputStream, TRUE);
         shell_exec(sprintf('stty %s', $sttyMode));
 
-        return 0;
+        return Command::SUCCESS;
     }
 }

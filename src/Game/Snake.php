@@ -7,32 +7,21 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Snake
 {
-    /**
-     * @var Board
-     */
-    private $board;
+    private Board $board;
 
     public const UP = 'up';
     public const RIGHT = 'right';
     public const DOWN = 'down';
     public const LEFT = 'left';
 
-    private $direction = self::RIGHT;
+    private string $direction = self::RIGHT;
 
-    /**
-     * @var Coordinate
-     */
-    private $head;
+    private Coordinate $head;
 
-    /**
-     * @var Coordinate[]
-     */
-    private $tail;
+    /** @var Coordinate[] */
+    private array $tail;
 
-    /**
-     * @var int
-     */
-    private $grow = 2;
+    private int $grow = 2;
 
     public function __construct(Board $board, Coordinate $start)
     {

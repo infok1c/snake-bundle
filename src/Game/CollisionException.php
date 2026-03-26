@@ -2,11 +2,9 @@
 
 namespace Dbu\SnakeBundle\Game;
 
-use Throwable;
-
 class CollisionException extends \RuntimeException
 {
-    private $coordinate;
+    private Coordinate $coordinate;
 
     public function __construct(Coordinate $coord)
     {

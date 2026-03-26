@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Dbu\SnakeBundle\Game;
-
 
 use Symfony\Component\Console\Cursor;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,29 +9,17 @@ class Board
 {
     private const GROWTH_RATE = 6;
 
-    /**
-     * @var int
-     */
-    private $score = 0;
+    private int $score = 0;
 
-    private $board;
-    private $width;
-    private $height;
+    private array $board;
+    private int $width;
+    private int $height;
 
-    /**
-     * @var Snake
-     */
-    private $snake;
+    private Snake $snake;
 
-    /**
-     * @var Coordinate
-     */
-    private $goal;
+    private Coordinate $goal;
 
-    /**
-     * @var bool
-     */
-    private $newGoal;
+    private bool $newGoal = false;
 
     public function __construct(int $width, int $height)
     {
@@ -129,6 +115,5 @@ class Board
         } while (!$this->allowed($this->goal));
 
         $this->newGoal = true;
-
     }
 }
