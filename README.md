@@ -24,7 +24,20 @@ Let it not distract you from your work ;-)
                           
 ## Installation
 
-    composer require dbu/snake-bundle
+    Ajouter le vcs dans le composer.json du projet cible
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/infok1c/snake-bundle.git"
+        }
+    ],
+
+    Puis :
+
+    composer require dbu/snake-bundle:dev-master
+    
+    # composer require dbu/snake-bundle
 
 ## Run
 
